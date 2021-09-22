@@ -1,0 +1,97 @@
+"""That time I got Rencarneted as a hero."""
+
+from random import randint
+
+__author__ = "730268397"
+
+points: int
+NAMED_CONSTANT = "\U0001F480 "
+EVIL_FACE = "\U0001F608"
+ANGEL_FACE = "\U0001F607"
+spooky: str = NAMED_CONSTANT
+player: str
+
+
+def main() -> None:
+    """The program's entry point."""
+    global player 
+    global points
+    points = 0
+    gam: bool = True
+    greet()
+    while gam:
+        wel: str = input("Do you want to play a game? Easy, Hard, Quit or random: ")
+        if wel == 'Easy':
+            lvl_one()
+        else:
+            if wel == 'Hard':
+                points = boss_lvl(points)
+            else:
+                if wel == 'Quit':
+                    gam = False 
+                    print(f"Goodbye see you next time! Here are your adventure points: {points}")
+                else:
+                    randint(1, 10)
+                    guess: int = int(input("Guess a number from 1 to 10?  "))
+                    if guess < 5:
+                        greet()
+                        return lvl_one()
+                    else: 
+                        print(f"Goodbye see you next time! Here are your adventure points: {points}")
+        print(f"Adventure points: {points}")
+    return None
+
+
+def greet() -> None:
+    """This is the greet function."""
+    player = input("What is your name? ")
+    print(f"Alright!  {player}, Congrates you have died {spooky} .... but the good news is that you have been rencarnated as a hero!")
+    print("You are in a new world where magic is all the rave. Your goal is become new protector of this new world.")
+    print("In order to do so you need to defeat several powerful monster that posses a great threat for the people")
+    print(f"The points you get the more powerfull you'll become! Get ready {player}, you in for a treat!")
+
+
+def lvl_one() -> None:
+    """One possibel direction."""
+    dir: str = input("Want to right or left? ")
+    if dir == 'right': 
+        print("Going to the big spooky forest!")
+        print("Oh no a monster! You must defeat it")
+        print("Monster has 50 percent health! You must use magic. ")
+        mat: str = input("To use your fire base attack what is 9 + 10? ")
+        if mat == '19':
+            global points
+            global player
+            points = points + 60
+            print(f"Fire spell very effective! {player}, Great!")
+            print("Thanks for playing!")
+            
+        else:
+            print(f"Opps! Your enemy striked back and your dead! {spooky}")
+            
+    else:
+        print(f"Opps! Lighting fell from the sky killed you! {spooky}")
+            
+        
+def boss_lvl(points: int) -> int:
+    """Another possible direction."""
+    print("The boss level! It's the demon king! ")
+    print("Defeat him and bring peace to the world!")
+    global player
+    fin: str = input("Use special #1 ULTIMATE IMPRISOMENT! 12 * 12 =  ")
+    if fin == '144':
+        fini: str = input("Awsome do it ONE MORE TIME!! 10 * 10 =  ")
+        if fini == '100':
+            points = points + 100
+            print(f"OMG {player}!, you defeated the demon king! You save the day! ")
+            print(f"Now you can be come the hero {ANGEL_FACE} .... or the new demon king! {EVIL_FACE}")
+            print("Thanks for playing!")
+        else:
+            print("TRY AGAIN!")
+    else:
+        print("TRY AGAIN!")
+    return points
+
+
+if __name__ == "__main__":
+    main()
