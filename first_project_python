@@ -1,8 +1,8 @@
+
 """That time I got Rencarneted as a hero."""
 
 from random import randint
 
-__author__ = "730268397"
 
 points: int
 NAMED_CONSTANT = "\U0001F480 "
@@ -14,7 +14,8 @@ player: str
 
 def main() -> None:
     """The program's entry point."""
-    global player 
+    global player
+    player = input("What is your name? ")
     global points
     points = 0
     gam: bool = True
@@ -44,8 +45,8 @@ def main() -> None:
 
 def greet() -> None:
     """This is the greet function."""
-    player = input("What is your name? ")
-    print(f"Alright!  {player}, Congrates you have died {spooky} .... but the good news is that you have been rencarnated as a hero!")
+    # player = input("What is your name? ")
+    print(f"Alright! {player}, Congrates you have died {spooky} .... but the good news is that you have been rencarnated as a hero!")
     print("You are in a new world where magic is all the rave. Your goal is become new protector of this new world.")
     print("In order to do so you need to defeat several powerful monster that posses a great threat for the people")
     print(f"The points you get the more powerfull you'll become! Get ready {player}, you in for a treat!")
@@ -75,6 +76,7 @@ def lvl_one() -> None:
         
 def boss_lvl(points: int) -> int:
     """Another possible direction."""
+    global player
     print("The boss level! It's the demon king! ")
     print("Defeat him and bring peace to the world!")
     global player
