@@ -1,0 +1,34 @@
+import random
+import os
+import re
+
+from pip._vendor.distlib.compat import raw_input
+
+os.system('cls' if os.name == 'nt' else 'clear')
+while (1 < 2):
+    print("\n")
+    print("Rock, Paper, Scissors - Shoot!")
+    userChoice = raw_input("Choose your weapon [R]ock], [P]aper, or [S]cissors: ")
+    if not re.match("[SsRrPp]", userChoice):
+        print("please choose a letter: ")
+        print("[R]ock, [S]cissors or [P]aper.")
+        continue
+
+    print("You chose: " + userChoice)
+    choices = ['R', 'P', 'S']
+    opponentChoice = random.choice(choices)
+    print("Robot Chooses: " + opponentChoice)
+    if opponentChoice == str.upper(userChoice):
+        print("Tie! ")
+     #if opponentChoice == str('R') and str.upper(userChoice) == 'P':
+    elif opponentChoice == 'R' and userChoice.upper() == 'S':
+        print("Rock beats scissors, I win!")
+        continue
+    elif opponentChoice == 'S' and userChoice.upper() == 'P':
+        print("Scissors beats paper! I win!")
+        continue
+    elif opponentChoice == 'P' and userChoice.upper() == "R":
+        print("Paper beats rock, I will!")
+        continue
+    else:
+        print("You Win, I'll get you next time!")
